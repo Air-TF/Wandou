@@ -29,10 +29,10 @@ public class MainActivity extends FragmentActivity {
         tabView= (TabView) findViewById(R.id.tabView);
         //添加导航页数据
         List<TabViewChild> tabViewChildList=new ArrayList<>();
-        TabViewChild tabViewChild01=new TabViewChild(R.drawable.tab01_sel,R.drawable.tab01_unsel,"首页",Fragment_Home.newInstance("首页"));
-        TabViewChild tabViewChild02=new TabViewChild(R.drawable.tab02_sel,R.drawable.tab02_unsel,"商城",Fragment_Mall.newInstance("商城"));
-        TabViewChild tabViewChild03=new TabViewChild(R.drawable.tab03_sel,R.drawable.tab03_unsel,"购物车",Fragment_Cart.newInstance("购物车"));
-        TabViewChild tabViewChild04=new TabViewChild(R.drawable.tab04_sel,R.drawable.tab04_unsel,"我的",Fragment_Mine.newInstance("我的"));
+        TabViewChild tabViewChild01=new TabViewChild(R.drawable.tab01_sel,R.drawable.tab01_unsel,"首页",FragmentCommon.newInstance("首页"));
+        TabViewChild tabViewChild02=new TabViewChild(R.drawable.tab02_sel,R.drawable.tab02_unsel,"商城",FragmentCommon.newInstance("商城"));
+        TabViewChild tabViewChild03=new TabViewChild(R.drawable.tab03_sel,R.drawable.tab03_unsel,"购物车",FragmentCommon.newInstance("购物车"));
+        TabViewChild tabViewChild04=new TabViewChild(R.drawable.tab04_sel,R.drawable.tab04_unsel,"我的",FragmentCommon.newInstance("我的"));
         tabViewChildList.add(tabViewChild01);
         tabViewChildList.add(tabViewChild02);
         tabViewChildList.add(tabViewChild03);
@@ -45,12 +45,7 @@ public class MainActivity extends FragmentActivity {
         tabView.setOnTabChildClickListener(new TabView.OnTabChildClickListener() {
             @Override
             public void onTabChildClick(int  position, ImageView currentImageIcon, TextView currentTextView) {
-                switch (position){
-                    case 0:replaceFragment(R.id.fragment_home,new Fragment_Home());break;
-                    case 1:replaceFragment(R.id.fragment_mall,new Fragment_Mall());break;
-                    case 2:replaceFragment(R.id.fragment_cart,new Fragment_Cart());break;
-                    case 3:replaceFragment(R.id.fragment_mine,new Fragment_Home());break;
-                }
+
             }
         });
     }

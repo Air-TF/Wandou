@@ -9,33 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </com.ycl.tabview.library.TabView>
-
-    <fragment
-        android:id="@+id/fragment_home"
-        android:name="com.example.air.wandou.Fragment_Home"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
-
-    <fragment
-        android:id="@+id/fragment_mall"
-        android:name="com.example.air.wandou.Fragment_Mall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
-
-    <fragment
-        android:id="@+id/fragment_cart"
-        android:name="com.example.air.wandou.Fragment_Cart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
-
-    <fragment
-        android:id="@+id/fragment_mine"
-        android:name="com.example.air.wandou.Fragment_Mine"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
+    
 
 </LinearLayout>
