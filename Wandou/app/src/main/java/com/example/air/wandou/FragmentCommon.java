@@ -26,9 +26,23 @@ public class FragmentCommon extends Fragment {
     @Nullable @Override
     public View onCreateView(LayoutInflater inflater,
                              @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.fragment_common,container,false);
-        textView= (TextView) view.findViewById(R.id.textView);
-        textView.setText(getArguments().getString("text"));
+        View view=inflater.inflate(R.layout.fragment_home,container,false);
+        switch (getArguments().getString("text")){
+            case "首页":
+                view=inflater.inflate(R.layout.fragment_home,container,false);
+                break;
+            case "商城":
+                view=inflater.inflate(R.layout.fragment_mall,container,false);
+                break;
+            case "购物车":
+                view=inflater.inflate(R.layout.fragment_cart,container,false);
+                break;
+            case "我的":
+                view=inflater.inflate(R.layout.fragment_mine,container,false);
+                break;
+        }
+//        textView= (TextView) view.findViewById(R.id.textView);
+//        textView.setText(getArguments().getString("text"));
         return view;
     }
 }
