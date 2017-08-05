@@ -97,7 +97,7 @@ public class TabView extends RelativeLayout {
 
 
     private void initDefaultAttrs(Context context){
-        mTextViewSelColor= Color.rgb(252,88,17);
+        mTextViewSelColor= Color.rgb(252,198,72);
         mTextViewUnSelColor= Color.rgb(129,130,149);
         mTabViewBackgroundColor= Color.rgb(255,255,255);
         mTabViewHeight=TabViewUtil.dp2px(context,52);

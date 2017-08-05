@@ -8,8 +8,9 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/Topbar" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/tabviewlibrary" />
+            <option value="$PROJECT_DIR$/tabview" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
