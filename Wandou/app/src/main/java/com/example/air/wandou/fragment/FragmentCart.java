@@ -9,15 +9,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.air.wandou.R;
+
 /**
  * Created by Air on 2017/8/1.
  */
 
-public class FragmentMine extends Fragment{
+public class FragmentCart extends Fragment{
     TextView textView;
 
-    public static FragmentMine newInstance(String text){
-        FragmentMine fragment_home=new FragmentMine();
+    public static FragmentCart newInstance(String text){
+        FragmentCart fragment_home=new FragmentCart();
         Bundle bundle=new Bundle();
         bundle.putString("text",text);
         fragment_home.setArguments(bundle);
@@ -26,7 +28,8 @@ public class FragmentMine extends Fragment{
     @Nullable @Override
     public View onCreateView(LayoutInflater inflater,
                              @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.fragment_home,container,false);
+        View view=inflater.inflate(R.layout.fragment_cart,container,false);
+
         return view;
     }
 }

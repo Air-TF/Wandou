@@ -13,11 +13,11 @@ import android.widget.TextView;
  * Created by Air on 2017/8/1.
  */
 
-public class FragmentMine extends Fragment{
+public class FragmentMall extends Fragment{
     TextView textView;
 
-    public static FragmentMine newInstance(String text){
-        FragmentMine fragment_home=new FragmentMine();
+    public static FragmentMall newInstance(String text){
+        FragmentMall fragment_home=new FragmentMall();
         Bundle bundle=new Bundle();
         bundle.putString("text",text);
         fragment_home.setArguments(bundle);
@@ -27,6 +27,7 @@ public class FragmentMine extends Fragment{
     public View onCreateView(LayoutInflater inflater,
                              @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_home,container,false);
+
         return view;
     }
 }

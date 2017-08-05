@@ -1,1 +1,1 @@
-include ':app', ':tabview', ':Topbar'
+include ':app', ':tabview'

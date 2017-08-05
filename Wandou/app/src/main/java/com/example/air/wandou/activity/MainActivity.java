@@ -44,7 +44,6 @@ public class MainActivity extends FragmentActivity {
         tabView.setOnTabChildClickListener(new TabView.OnTabChildClickListener() {
             @Override
             public void onTabChildClick(int  position, ImageView currentImageIcon, TextView currentTextView) {
-
             }
         });
     }
