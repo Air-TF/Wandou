@@ -1,3 +1,37 @@
 <resources>
-    <string name="app_name">Wandou</string>
+    <!--基本-->
+    <string name="app_name">豌豆汽车</string>
+    <string name="Home">首页</string>
+    <string name="Mall">商城</string>
+    <string name="Cart">购物车</string>
+    <string name="Mine">我的</string>
+
+    <!--我的-->
+    <string name="user">用户</string>
+    <string name="business">商家</string>
+    <string name="to_login">点击登录</string>
+    <string name="my_wallet">我的钱包</string>
+    <string name="my_friend">推荐好友</string>
+    <string name="my_orders">订单管理</string>
+    <string name="detailed_list">账户流水</string>
+    <string name="my_BankCard">我的银行卡</string>
+    <string name="my_favorite">我的收藏</string>
+    <string name="title_setting">设置</string>
+
+
+    
+    
+    <string name="share">分享</string>
+
+    <string name="my_info">个人资料</string>
+    <string name="my_addresses">收货地址</string>
+    <string name="my_msg">我的消息</string>
+    <string name="logout">退出登录</string>
+    <string name="token_error">登录失效，请重新登录</string>
+    <string name="create_order">填写订单</string>
+    <string name="pay_result">支付结果</string>
+    <string name="add_addresses">新建收件地址</string>
+    <string name="label_my_addresses">我的地址</string>
+
+
 </resources>

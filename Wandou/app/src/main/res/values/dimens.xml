@@ -54,4 +54,13 @@
     <dimen name="prb_symbolic_tick_default_text_size">15sp</dimen>
     <dimen name="prb_drawable_tick_default_spacing">1dp</dimen>
     <dimen name="toolbar_padding_top">25dp</dimen>
+
+
+    <dimen name="largePadding">16.0dip</dimen>
+
+    <dimen name="bigButtonTextSize">18.0dip</dimen>
+
+    <dimen name="normalButtonHeight">48.0dip</dimen>
+
+    <dimen name="buttonCornerSize">2.0dip</dimen>
 </resources>
