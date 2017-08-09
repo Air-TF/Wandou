@@ -7,7 +7,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.example.air.wandou.R;
 
@@ -16,7 +15,6 @@ import com.example.air.wandou.R;
  */
 
 public class FragmentBus extends Fragment{
-    TextView textView;
 
     public static FragmentBus newInstance(String text){
         FragmentBus fragment_home=new FragmentBus();
@@ -31,4 +29,5 @@ public class FragmentBus extends Fragment{
         View view=inflater.inflate(R.layout.fragment_bus,container,false);
         return view;
     }
+
 }

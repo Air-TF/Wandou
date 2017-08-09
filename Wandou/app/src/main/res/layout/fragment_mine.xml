@@ -154,15 +154,17 @@
                 android:layout_marginTop="@dimen/spacing_major">
 
                 <com.example.air.wandou.widget.section.SectionTextItemView
+                    android:id="@+id/setings"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:siv_icon="@mipmap/ic_settings"
+                    android:clickable="true"
                     app:siv_indicator="true"
                     app:siv_name="@string/title_setting" />
 
             </com.example.air.wandou.widget.section.SectionListView>
 
-                <RelativeLayout
+            <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"

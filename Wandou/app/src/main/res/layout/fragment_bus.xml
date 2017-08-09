@@ -105,22 +105,6 @@
                 <com.example.air.wandou.widget.section.SectionTextItemView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:siv_icon="@mipmap/ic_thumbup"
-                    app:siv_indicator="true"
-                    app:siv_name="@string/my_friend">
-
-                </com.example.air.wandou.widget.section.SectionTextItemView>
-
-            </com.example.air.wandou.widget.section.SectionListView>
-
-            <com.example.air.wandou.widget.section.SectionListView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_major">
-
-                <com.example.air.wandou.widget.section.SectionTextItemView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     app:siv_icon="@mipmap/ic_assignment"
                     app:siv_indicator="true"
                     app:siv_name="@string/my_orders" />
@@ -154,6 +138,7 @@
                 android:layout_marginTop="@dimen/spacing_major">
 
                 <com.example.air.wandou.widget.section.SectionTextItemView
+                    android:id="@+id/setings"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:siv_icon="@mipmap/ic_settings"
@@ -161,6 +146,7 @@
                     app:siv_name="@string/title_setting" />
 
             </com.example.air.wandou.widget.section.SectionListView>
+
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
@@ -176,12 +162,12 @@
                             android:id="@+id/mine_user"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:checked="true"
                             android:text="@string/user"/>
                         <RadioButton
                             android:id="@+id/mine_business"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:checked="true"
                             android:text="@string/business"
                             />
                     </RadioGroup>
