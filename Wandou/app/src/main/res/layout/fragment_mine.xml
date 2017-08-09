@@ -100,7 +100,7 @@
             <com.example.air.wandou.widget.section.SectionListView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_major">
+                android:layout_marginTop="@dimen/spacing_minor">
 
                 <com.example.air.wandou.widget.section.SectionTextItemView
                     android:layout_width="match_parent"
@@ -116,7 +116,7 @@
             <com.example.air.wandou.widget.section.SectionListView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_major">
+                android:layout_marginTop="@dimen/spacing_minor">
 
                 <com.example.air.wandou.widget.section.SectionTextItemView
                     android:layout_width="match_parent"
@@ -151,7 +151,7 @@
             <com.example.air.wandou.widget.section.SectionListView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_major">
+                android:layout_marginTop="@dimen/spacing_minor">
 
                 <com.example.air.wandou.widget.section.SectionTextItemView
                     android:id="@+id/setings"

@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.example.air.wandou.R;
 import com.example.air.wandou.activity.LoginActivity;
+import com.example.air.wandou.activity.SettingActivity;
 
 /**
  * Created by Air on 2017/8/1.
@@ -37,6 +38,12 @@ public class FragmentMine extends Fragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getContext(), LoginActivity.class));
+            }
+        });
+        view.findViewById(R.id.setings).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), SettingActivity.class));
             }
         });
         return view;
