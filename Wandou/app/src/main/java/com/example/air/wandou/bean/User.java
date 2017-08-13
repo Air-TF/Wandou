@@ -4,18 +4,20 @@ package com.example.air.wandou.bean;
 import java.io.Serializable;
 
 public class User implements Serializable {
+
+    //
     String id;
 
     String username;
 
     String nickname;
-
+    //电话号码
     String mobile;
 
     String email;
 
     String token;
-   //头像的URL
+    //头像的URL
     String avatarUrl;
 
     long lastAddressId;

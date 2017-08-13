@@ -30,6 +30,7 @@ public class FragmentCart extends Fragment{
                              @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_cart,container,false);
 
+
         return view;
     }
 }

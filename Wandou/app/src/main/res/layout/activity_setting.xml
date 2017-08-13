@@ -79,7 +79,7 @@
             </com.example.air.wandou.widget.section.SectionListView>
 
             <android.support.v7.widget.AppCompatButton
-                android:id="@+id/btn_login"
+                android:id="@+id/label_logout"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/cell_normal"
                 android:layout_margin="@dimen/content_padding"

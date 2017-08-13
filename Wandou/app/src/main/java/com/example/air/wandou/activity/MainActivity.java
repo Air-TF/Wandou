@@ -2,7 +2,7 @@ package com.example.air.wandou.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentActivity;
+import android.view.KeyEvent;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -11,6 +11,8 @@ import com.example.air.wandou.fragment.FragmentCart;
 import com.example.air.wandou.fragment.FragmentHome;
 import com.example.air.wandou.fragment.FragmentMall;
 import com.example.air.wandou.fragment.FragmentMine;
+import com.example.air.wandou.utils.ActivityStack;
+import com.example.air.wandou.utils.DoubleExitUtil;
 import com.ycl.tabview.library.TabView;
 import com.ycl.tabview.library.TabViewChild;
 
@@ -20,14 +22,13 @@ import java.util.List;
 /**
  *
  */
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends BaseActivity{
     TabView tabView;
-
+    DoubleExitUtil exitUtil;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         tabView = (TabView) findViewById(R.id.tabView);
         //添加导航页数据
         List<TabViewChild> tabViewChildList = new ArrayList<>();
@@ -50,5 +51,21 @@ public class MainActivity extends FragmentActivity {
 
             }
         });
+
+        //设置双击退出程序功能
+        exitUtil = new DoubleExitUtil(this);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            // 是否退出应用
+            boolean exit = exitUtil.onKeyDown(keyCode, event);
+            if (exit) {
+                ActivityStack.create().appExit();
+            }
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

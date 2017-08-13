@@ -51,7 +51,7 @@
                             android:layout_width="@dimen/avatar_width"
                             android:layout_height="@dimen/avatar_height"
                             android:layout_alignParentLeft="true"
-                            android:src="@drawable/ic_default_avatar" />
+                            android:src="@drawable/ic_default_avatar"/>
 
                         <TextView
                             android:id="@+id/txt_account_name1"
@@ -64,7 +64,7 @@
                             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                             android:textColor="?android:attr/textColorPrimaryInverse"
                             android:textSize="@dimen/font_large"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"/>
 
                         <TextView
                             android:id="@+id/txt_account_phone"
@@ -75,7 +75,7 @@
                             android:layout_toRightOf="@id/img_account_avatar1"
                             android:text="登录查看个人信息"
                             android:textColor="?android:attr/textColorPrimaryInverse"
-                            android:textSize="@dimen/font_normal" />
+                            android:textSize="@dimen/font_normal"/>
 
                         <ImageView
                             android:layout_width="wrap_content"
@@ -83,7 +83,7 @@
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
                             android:layout_marginRight="20dp"
-                            android:src="@mipmap/ic_arrow_right_white" />
+                            android:src="@mipmap/ic_arrow_right_white"/>
                     </RelativeLayout>
 
                 </LinearLayout>
@@ -95,7 +95,7 @@
                 android:layout_height="wrap_content"
                 app:siv_icon="@mipmap/ic_account_balance"
                 app:siv_indicator="true"
-                app:siv_name="@string/my_wallet" />
+                app:siv_name="@string/my_wallet"/>
 
             <com.example.air.wandou.widget.section.SectionListView
                 android:layout_width="match_parent"
@@ -123,28 +123,28 @@
                     android:layout_height="wrap_content"
                     app:siv_icon="@mipmap/ic_assignment"
                     app:siv_indicator="true"
-                    app:siv_name="@string/my_orders" />
+                    app:siv_name="@string/my_orders"/>
 
                 <com.example.air.wandou.widget.section.SectionTextItemView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:siv_icon="@mipmap/ic_description"
                     app:siv_indicator="true"
-                    app:siv_name="@string/detailed_list" />
+                    app:siv_name="@string/detailed_list"/>
 
                 <com.example.air.wandou.widget.section.SectionTextItemView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:siv_icon="@mipmap/ic_creditcard"
                     app:siv_indicator="true"
-                    app:siv_name="@string/my_BankCard" />
+                    app:siv_name="@string/my_BankCard"/>
 
                 <com.example.air.wandou.widget.section.SectionTextItemView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:siv_icon="@mipmap/ic_favorite"
                     app:siv_indicator="true"
-                    app:siv_name="@string/my_favorite" />
+                    app:siv_name="@string/my_favorite"/>
 
             </com.example.air.wandou.widget.section.SectionListView>
 
@@ -157,38 +157,41 @@
                     android:id="@+id/setings"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:siv_icon="@mipmap/ic_settings"
                     android:clickable="true"
+                    app:siv_icon="@mipmap/ic_settings"
                     app:siv_indicator="true"
-                    app:siv_name="@string/title_setting" />
+                    app:siv_name="@string/title_setting"/>
 
             </com.example.air.wandou.widget.section.SectionListView>
 
             <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                >
+
+                <RadioGroup
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
+                    android:orientation="horizontal"
                     >
-                    <RadioGroup
+
+                    <RadioButton
+                        android:id="@+id/mine_user"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        >
-                        <RadioButton
-                            android:id="@+id/mine_user"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:checked="true"
-                            android:text="@string/user"/>
-                        <RadioButton
-                            android:id="@+id/mine_business"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/business"
-                            />
-                    </RadioGroup>
+                        android:checked="true"
+                        android:text="@string/user"/>
 
-                </RelativeLayout>
+                    <RadioButton
+                        android:id="@+id/mine_business"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/business"
+                        />
+                </RadioGroup>
+
+            </RelativeLayout>
 
         </LinearLayout>
 

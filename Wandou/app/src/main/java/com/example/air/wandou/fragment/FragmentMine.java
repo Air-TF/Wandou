@@ -5,14 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.air.wandou.R;
 import com.example.air.wandou.activity.LoginActivity;
+import com.example.air.wandou.activity.MainActivity;
 import com.example.air.wandou.activity.SettingActivity;
 
 /**
@@ -34,6 +34,8 @@ public class FragmentMine extends Fragment {
     public View onCreateView(LayoutInflater inflater,
                              @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_mine, container, false);
+
+        //获取控件
         view.findViewById(R.id.layout_login_before).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,13 +48,11 @@ public class FragmentMine extends Fragment {
                 startActivity(new Intent(getContext(), SettingActivity.class));
             }
         });
+        MainActivity loginActivity= (MainActivity) getActivity();
+        Intent intent=loginActivity.getIntent();
+        String name=intent.getStringExtra("mobile");
+       TextView textView= (TextView) view.findViewById(R.id.txt_account_phone);
+        textView.setText(name);
         return view;
-    }
-    //调用碎片
-    private void replaceFragment(int id, Fragment fragment) {
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(id, fragment);
-        transaction.commit();
     }
 }

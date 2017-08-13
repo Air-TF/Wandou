@@ -1,82 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/dark_gray_bg"
+                android:orientation="vertical"
     >
 
     <com.example.air.wandou.widget.Topbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/toolbar"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
         android:layout_alignParentTop="true"
         android:layout_gravity="center"
-        app:title="@string/Cart"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
         app:isShowSearchView="false"
+        app:title="@string/Cart"
         >
     </com.example.air.wandou.widget.Topbar>
 
-    <RelativeLayout
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:background="#802f4f4f"
-        android:gravity="center_vertical"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:paddingBottom="50dp"
         >
 
-        <CheckBox
-            android:id="@+id/checkbox_all"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <com.example.air.wandou.widget.Cart_goods
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.example.air.wandou.widget.Cart_goods
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.example.air.wandou.widget.Cart_goods
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.example.air.wandou.widget.Cart_goods
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.example.air.wandou.widget.Cart_goods
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.example.air.wandou.widget.Cart_goods
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.example.air.wandou.widget.Cart_goods
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.example.air.wandou.widget.Cart_goods
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.example.air.wandou.widget.Cart_goods
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.example.air.wandou.widget.Cart_goods
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="#EEEEEE"
+        android:gravity="center_vertical"
+        android:paddingRight="15dp"
+        >
+
+        <Button
+            android:id="@+id/btn_checkall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:checked="true"
+            android:background="@color/tomato"
             android:text="全选"
-            style="@style/customCheckbox"/>
+            android:textColor="@color/white"/>
 
 
         <TextView
-            android:id="@+id/txt_total"
+            android:id="@+id/cart_total"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/checkbox_all"
-            android:layout_marginLeft="24dp"
+            android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:textSize="22dp"
-            android:text="合计"/>
+            android:text="共1件商品，合计128"
+            />
 
         <Button
             android:id="@+id/btn_order"
-            android:layout_width="wrap_content"
+            android:layout_width="66dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:minHeight="50dp"
-            android:minWidth="90dp"
+            android:backgroundTint="@color/colorPrimary"
             android:text="去结算"
-            style="@style/bigRedButton"/>
-
-
-        <Button
-            android:id="@+id/btn_del"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:visibility="gone"
-            android:minHeight="50dp"
-            android:minWidth="90dp"
-            android:text="删除"
-            style="@style/bigRedButton"/>
-
-
+            android:textColor="@color/white"/>
     </RelativeLayout>
 
 </RelativeLayout>

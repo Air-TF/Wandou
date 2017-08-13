@@ -7,8 +7,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.TextView;
 
 import com.example.air.wandou.R;
 
@@ -16,11 +14,10 @@ import com.example.air.wandou.R;
  * Created by Air on 2017/8/1.
  */
 
-public class FragmentHome extends Fragment{
-    TextView textView;
+public class FragmentLogin extends Fragment{
 
-    public static FragmentHome newInstance(String text){
-        FragmentHome fragment_home=new FragmentHome();
+    public static FragmentLogin newInstance(String text){
+        FragmentLogin fragment_home=new FragmentLogin();
         Bundle bundle=new Bundle();
         bundle.putString("text",text);
         fragment_home.setArguments(bundle);
@@ -29,8 +26,7 @@ public class FragmentHome extends Fragment{
     @Nullable @Override
     public View onCreateView(LayoutInflater inflater,
                              @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.fragment_home,container,false);
-        EditText seachEdit= (EditText) view.findViewById(R.id.toolbar_searchview);
+        View view=inflater.inflate(R.layout.fragment_login,container,false);
         return view;
     }
 }

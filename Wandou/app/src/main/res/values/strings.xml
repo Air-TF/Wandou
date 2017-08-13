@@ -34,6 +34,8 @@
     <string name="contact_service">联系客服</string>
     <string name="label_logout">退出登录</string>
 
+    <string name="toast_hint_double_click_exit">再按一次退出程序</string>
+
 
 
     <string name="share">分享</string>
