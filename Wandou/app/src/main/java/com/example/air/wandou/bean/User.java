@@ -22,6 +22,17 @@ public class User implements Serializable {
 
     long lastAddressId;
 
+    public User(String id, String username, String nickname, String mobile, String email, String token, String avatarUrl, long lastAddressId) {
+        this.id = id;
+        this.username = username;
+        this.nickname = nickname;
+        this.mobile = mobile;
+        this.email = email;
+        this.token = token;
+        this.avatarUrl = avatarUrl;
+        this.lastAddressId = lastAddressId;
+    }
+
     public String getId() {
         return id;
     }
@@ -84,18 +95,5 @@ public class User implements Serializable {
 
     public void setLastAddressId(long lastAddressId) {
         this.lastAddressId = lastAddressId;
-    }
-
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "userId=" + id +
-                ", username='" + username + '\'' +
-                ", nickname='" + nickname + '\'' +
-                ", mobile='" + mobile + '\'' +
-                ", email='" + email + '\'' +
-                ", avatarUrl='" + avatarUrl + '\'' +
-                '}';
     }
 }

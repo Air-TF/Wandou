@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 import com.example.air.wandou.R;
 import com.example.air.wandou.activity.LoginActivity;
-import com.example.air.wandou.activity.MainActivity;
 import com.example.air.wandou.activity.SettingActivity;
 
 /**
@@ -48,11 +47,7 @@ public class FragmentMine extends Fragment {
                 startActivity(new Intent(getContext(), SettingActivity.class));
             }
         });
-        MainActivity loginActivity= (MainActivity) getActivity();
-        Intent intent=loginActivity.getIntent();
-        String name=intent.getStringExtra("mobile");
-       TextView textView= (TextView) view.findViewById(R.id.txt_account_phone);
-        textView.setText(name);
+        TextView textView = (TextView) view.findViewById(R.id.txt_account_phone);
         return view;
     }
 }

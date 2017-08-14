@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/content_padding"
+            android:layout_marginRight="@dimen/content_padding"
+            android:layout_marginTop="@dimen/content_padding"
+            android:background="@drawable/btn_radius_all_normal"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/cell_normal"
+                android:layout_marginLeft="1.0dip"
+                android:layout_marginRight="1.0dip"
+                android:layout_marginTop="1.0dip"
+                android:background="@drawable/btn_radius_top_normal"
+                android:orientation="horizontal"
+                android:paddingRight="5.0dip">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/content_padding"
+                    android:layout_marginLeft="@dimen/content_margin"
+                    android:layout_marginRight="@dimen/content_margin"
+                    android:layout_marginTop="@dimen/content_padding"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/login_name"/>
+
+                <com.example.air.wandou.widget.ClearEditText
+                    android:id="@+id/et_new_account"
+                    android:layout_width="0.0dip"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1.0"
+                    android:background="@null"
+                    android:hint="输入手机号"
+                    android:maxLength="50"
+                    />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/stroke"
+                android:background="@color/divider"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/cell_normal"
+                android:layout_marginBottom="1.0dip"
+                android:layout_marginLeft="1.0dip"
+                android:layout_marginRight="1.0dip"
+                android:background="@drawable/btn_radius_bottom_normal"
+                android:orientation="horizontal"
+                android:paddingRight="5.0dip">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/content_padding"
+                    android:layout_marginLeft="@dimen/content_margin"
+                    android:layout_marginRight="@dimen/content_margin"
+                    android:layout_marginTop="@dimen/content_padding"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/login_password"/>
+
+                <com.example.air.wandou.widget.ClearEditText
+                    android:id="@+id/et_new_password"
+                    android:layout_width="0.0dip"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1.0"
+                    android:background="@null"
+                    android:hint="验证码"
+                    android:inputType="textPassword"
+                    android:maxLength="20"
+                    />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="获取验证码"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:padding="@dimen/content_padding"
+            android:orientation="horizontal"
+            >
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="已阅读并同意"
+                />
+
+            <TextView
+                android:id="@+id/tv_read"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="《豌豆汽车用户协议》"
+                android:textColor="@color/red_btn_color_normal"
+                />
+
+        </LinearLayout>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_reg"
+            style="@style/AppTheme"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/cell_normal"
+            android:layout_margin="@dimen/content_padding"
+            android:background="@color/colorPrimary"
+            android:text="注   册"
+            android:textColor="@color/white"
+            android:textSize="@dimen/action_bar_title_text_size"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>
