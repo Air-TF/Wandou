@@ -4,9 +4,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.air.wandou.R;
 import com.example.air.wandou.bean.Commodity;
@@ -19,52 +22,94 @@ import java.util.List;
 
 public class CommodityAdapter extends RecyclerView.Adapter<CommodityAdapter.ViewHolder> {
     private List<Commodity> mCommodityList;
+    public boolean isChanged = false;
+
 
     static class ViewHolder extends RecyclerView.ViewHolder {
         View commodityView;
         ImageView image;
         TextView name, count, price;
-        ImageButton add,subtract;
+        ImageButton add, subtract, delete;
+        CheckBox checkBox;
 
         public ViewHolder(View view) {
             super(view);
-            commodityView=view;
+            commodityView = view;
             image = (ImageView) view.findViewById(R.id.cart_img);
             name = (TextView) view.findViewById(R.id.cart_goods);
-            count= (TextView) view.findViewById(R.id.cart_count);
+            count = (TextView) view.findViewById(R.id.cart_count);
             price = (TextView) view.findViewById(R.id.cart_price);
-            add= (ImageButton) view.findViewById(R.id.cart_add);
+            add = (ImageButton) view.findViewById(R.id.cart_add);
             subtract = (ImageButton) view.findViewById(R.id.cart_subtract);
+            delete = (ImageButton) view.findViewById(R.id.cart_delete);
+            checkBox = (CheckBox) view.findViewById(R.id.cart_check);
         }
     }
 
-    public CommodityAdapter(List<Commodity> commodityList){
-        mCommodityList=commodityList;
+    public CommodityAdapter(List<Commodity> commodityList) {
+        mCommodityList = commodityList;
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.view_cart_item,parent,false);
-        final ViewHolder holder =new ViewHolder(view);
+    public ViewHolder onCreateViewHolder(final ViewGroup parent, int viewType) {
+        final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_cart_item, parent, false);
+        final ViewHolder holder = new ViewHolder(view);
+
         holder.add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int position =holder.getAdapterPosition();
-                Commodity commodity=mCommodityList.get(position);
-                holder.count.setText("2");
+
+                int position = holder.getAdapterPosition();
+                Commodity commodity = mCommodityList.get(position);
+                commodity.setCount(commodity.getCount() + 1);
+                holder.count.setText("" + commodity.getCount());
+                holder.price.setText(commodity.TotalToString());
             }
         });
 
+        holder.subtract.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int position = holder.getAdapterPosition();
+                Commodity commodity = mCommodityList.get(position);
+                if (commodity.getCount() > 1) {
+                    commodity.setCount(commodity.getCount() - 1);
+                } else {
+                    Toast.makeText(v.getContext(), "不能再少了", Toast.LENGTH_SHORT).show();
+                }
+                holder.count.setText("" + commodity.getCount());
+                holder.price.setText(commodity.TotalToString());
+            }
+        });
+
+        holder.delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int position = holder.getAdapterPosition();
+                Commodity commodity = mCommodityList.get(position);
+                mCommodityList.remove(position);
+                notifyItemRemoved(position);
+            }
+        });
+
+        holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                        isChose();
+            }
+        });
 
         return holder;
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Commodity commodity =mCommodityList.get(position);
+        Commodity commodity = mCommodityList.get(position);
         holder.image.setImageResource(commodity.getImgeId());
         holder.name.setText(commodity.getName());
-        holder.price.setText(commodity.getPrice());
+        holder.price.setText(commodity.TotalToString());
+        holder.count.setText(commodity.CountToString());
+        holder.checkBox.setChecked(commodity.isCheck());
     }
 
     @Override
@@ -72,5 +117,25 @@ public class CommodityAdapter extends RecyclerView.Adapter<CommodityAdapter.View
         return mCommodityList.size();
     }
 
+    //已经选择的个数
+    public String isChose() {
+        int total = 0;
+        int money = 0;
+        for (int i = 0; i < getItemCount(); i++) {
+            Commodity commodity = mCommodityList.get(i);
+            if (commodity.isCheck()) {
+                money += commodity.getTotal();
+                total += commodity.getCount();
+            }
+        }
+        return "共<span style='color:#eb4f38'>" + total + "</span>件商品，合计<span style='color:#eb4f38'>" + (double) money / 100 + "</span>";
+    }
 
+    //全选
+    public void CheckAll() {
+        for (int i = 0; i < getItemCount(); i++) {
+            Commodity commodity = mCommodityList.get(i);
+            commodity.setCheck(true);
+        }
+    }
 }

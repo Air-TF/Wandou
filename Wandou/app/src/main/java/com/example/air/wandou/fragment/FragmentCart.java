@@ -6,9 +6,11 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.air.wandou.R;
@@ -24,8 +26,11 @@ import java.util.List;
 
 public class FragmentCart extends Fragment {
     TextView textView;
+    Button CheckAll;
+    RecyclerView recyclerView;
+    CommodityAdapter commodityAdapter;
 
-    private List<Commodity> commodityList=new ArrayList<>();
+    private List<Commodity> commodityList = new ArrayList<>();
 
     public static FragmentCart newInstance(String text) {
         FragmentCart fragment_home = new FragmentCart();
@@ -39,24 +44,41 @@ public class FragmentCart extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater,
                              @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_cart, container, false);
+        final View view = inflater.inflate(R.layout.fragment_cart, container, false);
+        CheckAll = (Button) view.findViewById(R.id.btn_checkall);
+        textView = (TextView) view.findViewById(R.id.cart_total);
+
         //初始化购物车数据
         initCommodity();
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.cart_RecyclerView);
+        recyclerView = (RecyclerView) view.findViewById(R.id.cart_RecyclerView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
-        CommodityAdapter commodityAdapter= new CommodityAdapter(commodityList);
+        commodityAdapter = new CommodityAdapter(commodityList);
         recyclerView.setAdapter(commodityAdapter);
+
+        CheckAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                commodityAdapter.CheckAll();
+                Refresh();
+            }
+        });
+
+
         return view;
     }
 
     private void initCommodity() {
-        for (int i = 0;i<50;i++){
-            Commodity goods = new Commodity("哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈",R.drawable.test,"1","￥1351.32");
+        for (int i = 0; i < 5; i++) {
+            Commodity goods = new Commodity(true, "哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈", R.drawable.test, 1, 13535);
             commodityList.add(goods);
-            Commodity com = new Commodity("呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵",R.drawable.test,"1","￥13.32");
+            Commodity com = new Commodity(false, "呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵", R.drawable.tyre, 1, 54635);
             commodityList.add(com);
         }
+    } 
 
+    public void Refresh() {
+        recyclerView.setAdapter(commodityAdapter);
+        textView.setText(Html.fromHtml(commodityAdapter.isChose()), TextView.BufferType.SPANNABLE);
     }
 }

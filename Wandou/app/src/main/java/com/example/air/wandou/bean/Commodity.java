@@ -10,15 +10,18 @@ public class Commodity {
     //图片资源Id
     private int imgeId;
     //价格
-    private String price;
+    private int price,total;
     //数量
-    private String count;
+    private int count;
+    //默认被选中
+    private boolean isCheck;
 
-    public Commodity(String name, int imgeId, String count,String price) {
+    public Commodity(boolean isCheck,String name, int imgeId, int count, int price) {
         this.name = name;
         this.imgeId = imgeId;
         this.price = price;
         this.count = count;
+        this.isCheck = isCheck;
     }
 
     public String getName() {
@@ -33,23 +36,48 @@ public class Commodity {
         this.imgeId = imgeId;
     }
 
-    public void setPrice(String price) {
-        this.price = price;
+    public void setPrice(int price) {
+        this.price = price*100;
     }
 
-    public void setCount(String count) {
+    public int getPrice() {
+        return price/100;
+    }
+
+    public void setCount(int count) {
         this.count = count;
     }
 
-    public String getCount() {
+    public int getCount() {
         return count;
+    }
+
+    public boolean isCheck() {
+        return isCheck;
+    }
+
+    public int getTotal() {
+        return price*count;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
+    }
+
+    public void setCheck(boolean check) {
+        isCheck = check;
     }
 
     public int getImgeId() {
         return imgeId;
     }
 
-    public String getPrice() {
-        return price;
+    public String CountToString() {
+        return ""+count;
     }
+
+    public String TotalToString() {
+        return "￥"+(double)price*count/100;
+    }
+
 }

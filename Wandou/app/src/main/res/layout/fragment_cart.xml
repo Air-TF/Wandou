@@ -31,64 +31,6 @@
 
     </android.support.v7.widget.RecyclerView>
 
-    <!--<ScrollView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_below="@+id/toolbar"-->
-        <!--android:paddingBottom="50dp"-->
-        <!--&gt;-->
-
-        <!--<LinearLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:orientation="vertical"-->
-            <!--&gt;-->
-
-            <!--<com.example.air.wandou.widget.Cart_goods-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"/>-->
-
-            <!--<com.example.air.wandou.widget.Cart_goods-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"/>-->
-
-            <!--<com.example.air.wandou.widget.Cart_goods-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"/>-->
-
-            <!--<com.example.air.wandou.widget.Cart_goods-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"/>-->
-
-            <!--<com.example.air.wandou.widget.Cart_goods-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"/>-->
-
-            <!--<com.example.air.wandou.widget.Cart_goods-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"/>-->
-
-            <!--<com.example.air.wandou.widget.Cart_goods-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"/>-->
-
-            <!--<com.example.air.wandou.widget.Cart_goods-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"/>-->
-
-            <!--<com.example.air.wandou.widget.Cart_goods-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"/>-->
-
-            <!--<com.example.air.wandou.widget.Cart_goods-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"/>-->
-
-        <!--</LinearLayout>-->
-
-    <!--</ScrollView>-->
-
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
