@@ -7,13 +7,26 @@ package com.example.air.wandou.bean;
 public class Commodity {
     //名字
     private String name;
+
+    @Override
+    public String toString() {
+        return "Commodity{" +
+                "name='" + name + '\'' +
+                ", imgeId=" + imgeId +
+                ", price=" + price +
+                ", total=" + total +
+                ", count=" + count +
+                ", isCheck=" + isCheck +
+                '}';
+    }
+
     //图片资源Id
     private int imgeId;
     //价格
     private int price,total;
     //数量
     private int count;
-    //默认被选中
+    //是否被选中
     private boolean isCheck;
 
     public Commodity(boolean isCheck,String name, int imgeId, int count, int price) {

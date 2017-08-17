@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,8 +21,18 @@ import java.util.List;
 
 public class CommodityAdapter extends RecyclerView.Adapter<CommodityAdapter.ViewHolder> {
     private List<Commodity> mCommodityList;
-    public boolean isChanged = false;
 
+
+
+    public interface OnClickListener {
+        void setOnClick(View view , int position);
+    }
+
+    private OnClickListener onClickListener;
+
+    public void setOnClickListener(OnClickListener OnClickListener) {
+        this.onClickListener = OnClickListener;
+    }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
         View commodityView;
@@ -58,12 +67,12 @@ public class CommodityAdapter extends RecyclerView.Adapter<CommodityAdapter.View
         holder.add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 int position = holder.getAdapterPosition();
                 Commodity commodity = mCommodityList.get(position);
                 commodity.setCount(commodity.getCount() + 1);
                 holder.count.setText("" + commodity.getCount());
                 holder.price.setText(commodity.TotalToString());
+                onClickListener.setOnClick(v,position);
             }
         });
 
@@ -79,6 +88,7 @@ public class CommodityAdapter extends RecyclerView.Adapter<CommodityAdapter.View
                 }
                 holder.count.setText("" + commodity.getCount());
                 holder.price.setText(commodity.TotalToString());
+                onClickListener.setOnClick(v,position);
             }
         });
 
@@ -86,19 +96,25 @@ public class CommodityAdapter extends RecyclerView.Adapter<CommodityAdapter.View
             @Override
             public void onClick(View v) {
                 int position = holder.getAdapterPosition();
-                Commodity commodity = mCommodityList.get(position);
                 mCommodityList.remove(position);
                 notifyItemRemoved(position);
+                onClickListener.setOnClick(v,position);
             }
         });
 
-        holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        holder.checkBox.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                        isChose();
+            public void onClick(View v) {
+                int position = holder.getAdapterPosition();
+                Commodity commodity = mCommodityList.get(position);
+                if (commodity.isCheck()) {
+                    commodity.setCheck(false);
+                } else {
+                    commodity.setCheck(true);
+                }
+                onClickListener.setOnClick(v,position);
             }
         });
-
         return holder;
     }
 
@@ -135,6 +151,15 @@ public class CommodityAdapter extends RecyclerView.Adapter<CommodityAdapter.View
     public void CheckAll() {
         for (int i = 0; i < getItemCount(); i++) {
             Commodity commodity = mCommodityList.get(i);
+            commodity.setCheck(true);
+        }
+    }
+
+    public void CheckChange(int position) {
+        Commodity commodity = mCommodityList.get(position);
+        if (commodity.isCheck()) {
+            commodity.setCheck(false);
+        } else {
             commodity.setCheck(true);
         }
     }

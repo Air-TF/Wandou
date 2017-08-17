@@ -159,12 +159,12 @@
                         android:orientation="horizontal"
                         >
                         <RadioButton
-                            android:id="@+id/mine_user"
+                            android:id="@+id/bt_mine_user"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/user"/>
                         <RadioButton
-                            android:id="@+id/mine_business"
+                            android:id="@+id/bt_mine_business"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:checked="true"
@@ -177,5 +177,10 @@
         </LinearLayout>
 
     </ScrollView>
+
+    <FrameLayout
+        android:id="@+id/mine_user"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </LinearLayout>

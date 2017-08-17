@@ -1,6 +1,7 @@
 package com.example.air.wandou.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -14,7 +15,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.air.wandou.R;
+import com.example.air.wandou.activity.SettltmentActivity;
 import com.example.air.wandou.adapter.CommodityAdapter;
+import com.example.air.wandou.base.L;
 import com.example.air.wandou.bean.Commodity;
 
 import java.util.ArrayList;
@@ -26,7 +29,7 @@ import java.util.List;
 
 public class FragmentCart extends Fragment {
     TextView textView;
-    Button CheckAll;
+    Button CheckAll, Settlement;
     RecyclerView recyclerView;
     CommodityAdapter commodityAdapter;
 
@@ -47,38 +50,52 @@ public class FragmentCart extends Fragment {
         final View view = inflater.inflate(R.layout.fragment_cart, container, false);
         CheckAll = (Button) view.findViewById(R.id.btn_checkall);
         textView = (TextView) view.findViewById(R.id.cart_total);
-
+        Settlement = (Button) view.findViewById(R.id.btn_settlement);
         //初始化购物车数据
         initCommodity();
-        recyclerView = (RecyclerView) view.findViewById(R.id.cart_RecyclerView);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        final RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.cart_RecyclerView);
+        final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
-        commodityAdapter = new CommodityAdapter(commodityList);
+        //如果可以确定每个item的高度是固定的，设置这个选项可以提高性能
+        recyclerView.setHasFixedSize(true);
+        final CommodityAdapter commodityAdapter = new CommodityAdapter(commodityList);
         recyclerView.setAdapter(commodityAdapter);
+        textView.setText(Html.fromHtml(commodityAdapter.isChose()), TextView.BufferType.SPANNABLE);
+
 
         CheckAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 commodityAdapter.CheckAll();
-                Refresh();
+                recyclerView.setAdapter(commodityAdapter);
+                textView.setText(Html.fromHtml(commodityAdapter.isChose()), TextView.BufferType.SPANNABLE);
             }
         });
 
+        commodityAdapter.setOnClickListener(new CommodityAdapter.OnClickListener() {
+            @Override
+            public void setOnClick(View view, int position) {
+                textView.setText(Html.fromHtml(commodityAdapter.isChose()), TextView.BufferType.SPANNABLE);
+            }
+        });
 
+        Settlement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(),SettltmentActivity.class);
+                L.d(""+getContext());
+                startActivity(intent);
+            }
+        });
         return view;
     }
 
     private void initCommodity() {
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 30; i++) {
             Commodity goods = new Commodity(true, "哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈", R.drawable.test, 1, 13535);
             commodityList.add(goods);
             Commodity com = new Commodity(false, "呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵", R.drawable.tyre, 1, 54635);
             commodityList.add(com);
         }
-    } 
-
-    public void Refresh() {
-        recyclerView.setAdapter(commodityAdapter);
-        textView.setText(Html.fromHtml(commodityAdapter.isChose()), TextView.BufferType.SPANNABLE);
     }
 }

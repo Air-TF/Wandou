@@ -17,8 +17,7 @@
         android:minHeight="?attr/actionBarSize"
         app:isShowSearchView="false"
         app:title="@string/Cart"
-        >
-    </com.example.air.wandou.widget.Topbar>
+        />
 
 
 
@@ -59,7 +58,7 @@
             />
 
         <Button
-            android:id="@+id/btn_order"
+            android:id="@+id/btn_settlement"
             android:layout_width="66dp"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -68,5 +67,4 @@
             android:text="去结算"
             android:textColor="@color/white"/>
     </RelativeLayout>
-
 </RelativeLayout>
