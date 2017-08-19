@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:Topbar="http://schemas.android.com/apk/res-auto"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+              xmlns:Topbar="http://schemas.android.com/apk/res-auto"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
 
     <com.example.air.wandou.widget.Topbar
         android:layout_width="match_parent"
@@ -12,8 +12,8 @@
         android:layout_gravity="center"
         android:background="@color/colorPrimary"
         android:minHeight="?attr/actionBarSize"
-        Topbar:leftButtonIcon="@drawable/icon_back_32px"
-        Topbar:title="@string/title_setting" />
+        Topbar:leftButtonIcon="@mipmap/icon_back"
+        Topbar:title="@string/title_setting"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -33,15 +33,15 @@
                 <com.example.air.wandou.widget.section.SectionTextItemView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:siv_name="@string/my_info"
                     app:siv_indicator="true"
+                    app:siv_name="@string/my_info"
                     />
 
                 <com.example.air.wandou.widget.section.SectionTextItemView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:siv_name="@string/security_center"
                     app:siv_indicator="true"
+                    app:siv_name="@string/security_center"
                     />
             </com.example.air.wandou.widget.section.SectionListView>
 
@@ -53,40 +53,42 @@
                 <com.example.air.wandou.widget.section.SectionTextItemView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:siv_indicator="true"
                     app:siv_name="@string/user_guide"
-                    app:siv_indicator="true"
                     />
 
                 <com.example.air.wandou.widget.section.SectionTextItemView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:siv_indicator="true"
                     app:siv_name="@string/help_center"
-                    app:siv_indicator="true"
                     />
 
                 <com.example.air.wandou.widget.section.SectionTextItemView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:siv_name="@string/label_about_me"
                     app:siv_indicator="true"
+                    app:siv_name="@string/label_about_me"
                     />
+
                 <com.example.air.wandou.widget.section.SectionTextItemView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:siv_name="@string/contact_service"
                     app:siv_indicator="true"
+                    app:siv_name="@string/contact_service"
                     />
             </com.example.air.wandou.widget.section.SectionListView>
 
-            <android.support.v7.widget.AppCompatButton
+            <Button
                 android:id="@+id/label_logout"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/cell_normal"
                 android:layout_margin="@dimen/content_padding"
+                android:textColor="@color/white"
+                android:background="@drawable/standard_button_bg"
                 android:text="@string/label_logout"
                 android:textSize="@dimen/action_bar_title_text_size"
-                android:background="@color/colorPrimary"
-                style="@style/AppTheme" />
+            />
         </LinearLayout>
     </ScrollView>
 

@@ -46,8 +46,8 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:minHeight">@dimen/normalButtonHeight</item>
     </style>
-    <style name="bigRedButton" parent="@style/bigButton">
-        <item name="android:background">@drawable/bg_btn_style_red</item>
-    </style>
+    <!--<style name="bigRedButton" parent="@style/bigButton">-->
+        <!--<item name="android:background">@drawable/bg_btn_style_red</item>-->
+    <!--</style>-->
 
 </resources>

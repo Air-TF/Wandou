@@ -14,8 +14,8 @@
         android:minHeight="?attr/actionBarSize"
         android:layout_centerInParent="true"
         android:layout_gravity="center"
-        app:leftButtonIcon="@drawable/icon_back_32px"
-        app:rightButtonIcon="@drawable/icon_back_32px"
+        app:leftButtonIcon="@mipmap/icon_back"
+        app:rightButtonIcon="@mipmap/icon_back"
         app:title="@string/Mall"
         app:isShowSearchView="true"
        />

@@ -19,14 +19,4 @@
         >
     </com.example.air.wandou.widget.Topbar>
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="30sp"
-        android:clickable="true"
-        android:textColor="#333333"
-        android:textStyle="bold"
-        android:text="TEXT"
-       />
 </LinearLayout>
