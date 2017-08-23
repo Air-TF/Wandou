@@ -154,13 +154,4 @@ public class CommodityAdapter extends RecyclerView.Adapter<CommodityAdapter.View
             commodity.setCheck(true);
         }
     }
-
-    public void CheckChange(int position) {
-        Commodity commodity = mCommodityList.get(position);
-        if (commodity.isCheck()) {
-            commodity.setCheck(false);
-        } else {
-            commodity.setCheck(true);
-        }
-    }
 }

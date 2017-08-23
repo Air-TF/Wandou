@@ -24,13 +24,12 @@ import java.util.List;
 public class FragmentMall extends Fragment {
 
 
-    private TabLayout tab_FindFragment_title;                            //定义TabLayout
-    private ViewPager vp_FindFragment_pager;                             //定义viewPager
+    private TabLayout tab_title;                            //定义TabLayout
+    private ViewPager vp_pager;                             //定义viewPager
     private FragmentStatePagerAdapter fAdapter;                               //定义adapter
 
     private List<Fragment> list_fragment;                                //定义要装fragment的列表
     private List<String> list_title;                                     //tab名称列表
-
 
 
     public static FragmentMall newInstance(String text) {
@@ -50,6 +49,7 @@ public class FragmentMall extends Fragment {
         initControls(view);
         return view;
     }
+
     /**
      * 初始化各控件
      *
@@ -57,14 +57,14 @@ public class FragmentMall extends Fragment {
      */
     private void initControls(View view) {
 
-        tab_FindFragment_title = (TabLayout) view.findViewById(R.id.mall_tablayout);
-        vp_FindFragment_pager = (ViewPager) view.findViewById(R.id.mall_viewpage);
+        tab_title = (TabLayout) view.findViewById(R.id.mall_tablayout);
+        vp_pager = (ViewPager) view.findViewById(R.id.mall_viewpage);
 
         //将fragment装进列表中
         list_fragment = new ArrayList<>();
-        list_fragment.add(FragmentCart.newInstance(""));
-        list_fragment.add(FragmentCart.newInstance(""));
-        list_fragment.add(FragmentCart.newInstance(""));
+        list_fragment.add(FragmentMallRecommend.newInstance(""));
+        list_fragment.add(FragmentMallStore.newInstance(""));
+        list_fragment.add(FragmentMallService.newInstance(""));
 
         //将名称加载tab名字列表，正常情况下，我们应该在values/arrays.xml中进行定义然后调用
         list_title = new ArrayList<>();
@@ -75,9 +75,9 @@ public class FragmentMall extends Fragment {
         fAdapter = new MallTabAdapter(getActivity().getSupportFragmentManager(), list_fragment, list_title);
 
         //viewpager加载adapter
-        vp_FindFragment_pager.setAdapter(fAdapter);
+        vp_pager.setAdapter(fAdapter);
         //TabLayout加载viewpager
-        tab_FindFragment_title.setupWithViewPager(vp_FindFragment_pager);
+        tab_title.setupWithViewPager(vp_pager);
     }
 
 

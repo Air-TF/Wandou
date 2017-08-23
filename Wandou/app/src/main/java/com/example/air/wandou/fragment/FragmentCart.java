@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
+import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,8 +18,8 @@ import android.widget.TextView;
 import com.example.air.wandou.R;
 import com.example.air.wandou.activity.SettltmentActivity;
 import com.example.air.wandou.adapter.CommodityAdapter;
-import com.example.air.wandou.base.L;
 import com.example.air.wandou.bean.Commodity;
+import com.example.air.wandou.widget.RecyclerViewDivider;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,8 +31,6 @@ import java.util.List;
 public class FragmentCart extends Fragment {
     TextView textView;
     Button CheckAll, Settlement;
-    RecyclerView recyclerView;
-    CommodityAdapter commodityAdapter;
 
     private List<Commodity> commodityList = new ArrayList<>();
 
@@ -56,11 +55,13 @@ public class FragmentCart extends Fragment {
         final RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.cart_RecyclerView);
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
+        //设置分割线
+        recyclerView.addItemDecoration(new RecyclerViewDivider(getContext(), LinearLayoutManager.VERTICAL));
         //如果可以确定每个item的高度是固定的，设置这个选项可以提高性能
         recyclerView.setHasFixedSize(true);
         final CommodityAdapter commodityAdapter = new CommodityAdapter(commodityList);
         recyclerView.setAdapter(commodityAdapter);
-        textView.setText(Html.fromHtml(commodityAdapter.isChose()), TextView.BufferType.SPANNABLE);
+        textView.setText(fromHtml(commodityAdapter.isChose()), TextView.BufferType.SPANNABLE);
 
 
         CheckAll.setOnClickListener(new View.OnClickListener() {
@@ -68,22 +69,21 @@ public class FragmentCart extends Fragment {
             public void onClick(View v) {
                 commodityAdapter.CheckAll();
                 recyclerView.setAdapter(commodityAdapter);
-                textView.setText(Html.fromHtml(commodityAdapter.isChose()), TextView.BufferType.SPANNABLE);
+                textView.setText(fromHtml(commodityAdapter.isChose()), TextView.BufferType.SPANNABLE);
             }
         });
 
         commodityAdapter.setOnClickListener(new CommodityAdapter.OnClickListener() {
             @Override
             public void setOnClick(View view, int position) {
-                textView.setText(Html.fromHtml(commodityAdapter.isChose()), TextView.BufferType.SPANNABLE);
+                textView.setText(fromHtml(commodityAdapter.isChose()), TextView.BufferType.SPANNABLE);
             }
         });
 
         Settlement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(),SettltmentActivity.class);
-                L.d(""+getContext());
+                Intent intent = new Intent(getContext(), SettltmentActivity.class);
                 startActivity(intent);
             }
         });
@@ -97,5 +97,14 @@ public class FragmentCart extends Fragment {
             Commodity com = new Commodity(false, "呵呵呵呵呵呵呵呵呵呵呵呵呵呵呵", R.drawable.tyre, 1, 54635);
             commodityList.add(com);
         }
+    }
+    public static Spanned fromHtml(String html){
+        Spanned result;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            result = Html.fromHtml(html,Html.FROM_HTML_MODE_LEGACY);
+        } else {
+            result = Html.fromHtml(html);
+        }
+        return result;
     }
 }

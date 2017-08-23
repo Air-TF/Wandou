@@ -30,19 +30,10 @@
 
 
     <android.support.v4.view.ViewPager
-        android:id="@+id/viewPage"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_below="@+id/mall_tablayout"
-        >
-    </android.support.v4.view.ViewPager>
-
-
-    <android.support.v4.view.ViewPager
         android:id="@+id/mall_viewpage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/viewPage"
+        android:layout_below="@+id/mall_tablayout"
         ></android.support.v4.view.ViewPager>
 
 </RelativeLayout>

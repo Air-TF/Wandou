@@ -48,7 +48,7 @@
             <com.example.air.wandou.widget.section.SectionListView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="@dimen/spacing_minor">
+                android:layout_marginTop="@dimen/spacing_minor">
 
                 <com.example.air.wandou.widget.section.SectionTextItemView
                     android:layout_width="match_parent"
