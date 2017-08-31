@@ -110,7 +110,6 @@ public class Topbar extends Toolbar {
             mLeftButton = (ImageButton) mView.findViewById(com.example.air.wandou.R.id.toolbar_leftbutton);
             mRightButton = (ImageButton) mView.findViewById(com.example.air.wandou.R.id.toolbar_rightbutton);
 
-
             //然后使用LayoutParams把控件添加到子view中
             LayoutParams lp = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.CENTER_HORIZONTAL);
             addView(mView, lp);

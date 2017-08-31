@@ -4,12 +4,17 @@ package com.example.air.wandou.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.air.wandou.R;
+import com.example.air.wandou.adapter.MallAdapter;
+import com.example.air.wandou.base.L;
+import com.example.air.wandou.bean.Commodity;
 import com.example.air.wandou.widget.Banner;
 
 import java.util.ArrayList;
@@ -20,6 +25,9 @@ import java.util.List;
  */
 
 public class FragmentMallRecommend extends Fragment {
+    private MallAdapter mallAdapter;
+    private RecyclerView recyclerView;
+    List<Commodity> commodityList = new ArrayList<>();
     Banner mBannerLocal;
 
     public static FragmentMallRecommend newInstance(String text) {
@@ -36,11 +44,31 @@ public class FragmentMallRecommend extends Fragment {
                              @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_mall_recommend, container, false);
         mBannerLocal = (Banner) view.findViewById(R.id.mall_banner);
-        initLocalBanner();
+        recyclerView = (RecyclerView) view.findViewById(R.id.mall_recycler);
 
+
+        recyclerView.setNestedScrollingEnabled(false);
+        mallAdapter = new MallAdapter(commodityList);
+        recyclerView.setAdapter(mallAdapter);
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
+
+
+        //初始化广告
+        initLocalBanner();
+        //初始化布局
+        initCommodity();
         return view;
     }
 
+    private void initCommodity() {
+        L.d("推荐");
+        for (int i = 0; i < 2; i++) {
+            Commodity goods = new Commodity(true, "全动力多元醇酯全合成机油", R.drawable.test, 1, 13535);
+            commodityList.add(goods);
+            Commodity com = new Commodity(false, "全动力多元醇酯全合成机油", R.drawable.gasoline, 1, 54635);
+            commodityList.add(com);
+        }
+    }
 
     /**
      * 加载本地图片
