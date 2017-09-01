@@ -93,7 +93,7 @@ public class FragmentMallService extends Fragment {
 
     private void initCommodity() {
         L.d("车服");
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 2; i++) {
             Commodity goods = new Commodity(true, "全动力多元醇酯全合成机油", R.drawable.test, 1, 13535);
             commodityList.add(goods);
             Commodity com = new Commodity(false, "全动力多元醇酯全合成机油", R.drawable.gasoline, 1, 54635);

@@ -59,6 +59,7 @@ public class FragmentMall extends Fragment {
 
         tab_title = (TabLayout) view.findViewById(R.id.mall_tablayout);
         vp_pager = (ViewPager) view.findViewById(R.id.mall_viewpage);
+        //设置viewPager缓存页面为3个
         vp_pager.setOffscreenPageLimit(2);
 
         //将fragment装进列表中
