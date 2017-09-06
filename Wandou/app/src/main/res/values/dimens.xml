@@ -63,4 +63,5 @@
     <dimen name="normalButtonHeight">48.0dip</dimen>
 
     <dimen name="buttonCornerSize">2.0dip</dimen>
+
 </resources>

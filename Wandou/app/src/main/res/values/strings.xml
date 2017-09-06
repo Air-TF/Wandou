@@ -36,6 +36,9 @@
 
     <string name="toast_hint_double_click_exit">再按一次退出程序</string>
 
+    <!--编辑收货地址-->
+    <string name="edit_address">编辑收货地址</string>
+    <string name="consignee">收货人</string>
 
 
     <string name="share">分享</string>

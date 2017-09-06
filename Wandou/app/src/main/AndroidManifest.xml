@@ -25,6 +25,7 @@
         <activity android:name=".activity.SettingActivity"></activity>
         <activity android:name=".activity.ForgetPwdActivity"></activity>
         <activity android:name=".activity.SettltmentActivity"></activity>
+        <activity android:name=".activity.EditAddressActivity"></activity>
     </application>
 
 </manifest>

@@ -31,6 +31,7 @@
                 android:paddingTop="@dimen/spacing_minor">
 
                 <com.example.air.wandou.widget.section.SectionTextItemView
+                    android:id="@+id/setting_my_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:siv_indicator="true"

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layout_item"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:background="@drawable/selector_common_item_bg"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:id="@+id/layout_item"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_centerVertical="true"
+              android:background="@drawable/selector_common_item_bg"
+              android:orientation="vertical"
     >
 
     <LinearLayout
@@ -19,11 +20,11 @@
             android:id="@+id/txt_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/spacing_minor"
             android:layout_gravity="center_vertical"
-            tools:text="用户名"
+            android:layout_marginLeft="@dimen/spacing_minor"
             android:textColor="@color/primary_text"
             android:textSize="@dimen/font_normal"
+            tools:text="用户名"
             />
 
         <Space
@@ -36,16 +37,16 @@
             android:id="@+id/layout_extension"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/spacing_minor"
             android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/spacing_minor"
             />
 
         <ImageView
             android:id="@+id/img_indicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/spacing_minor"
             android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/spacing_minor"
             android:src="@mipmap/ic_arrow_right"
             android:visibility="invisible"
             />

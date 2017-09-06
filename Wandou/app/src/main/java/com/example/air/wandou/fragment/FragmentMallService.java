@@ -13,7 +13,6 @@ import android.widget.Toast;
 
 import com.example.air.wandou.R;
 import com.example.air.wandou.adapter.MallAdapter;
-import com.example.air.wandou.base.L;
 import com.example.air.wandou.bean.Commodity;
 import com.example.air.wandou.widget.Banner;
 
@@ -92,7 +91,6 @@ public class FragmentMallService extends Fragment {
     }
 
     private void initCommodity() {
-        L.d("车服");
         for (int i = 0; i < 2; i++) {
             Commodity goods = new Commodity(true, "全动力多元醇酯全合成机油", R.drawable.test, 1, 13535);
             commodityList.add(goods);

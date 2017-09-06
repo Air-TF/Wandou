@@ -22,4 +22,5 @@
         </attr>
         <attr name="points_container_background" format="reference|color"/>
     </declare-styleable>
+
 </resources>

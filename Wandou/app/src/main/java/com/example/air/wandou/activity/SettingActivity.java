@@ -17,6 +17,13 @@ public class SettingActivity extends BaseActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
         Button logout = (Button) findViewById(R.id.label_logout);
+
+        findViewById(R.id.setting_my_info).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplication(), EditAddressActivity.class));
+            }
+        });
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
