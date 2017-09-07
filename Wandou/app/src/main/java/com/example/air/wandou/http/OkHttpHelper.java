@@ -25,10 +25,7 @@ public class OkHttpHelper {
     private  static  OkHttpHelper mInstance;
     private OkHttpClient mHttpClient;
     private Gson mGson;
-
     private Handler mHandler;
-
-
 
     static {
         mInstance = new OkHttpHelper();
@@ -53,11 +50,7 @@ public class OkHttpHelper {
         return  mInstance;
     }
 
-
-
-
     public void get(String url,BaseCallback callback){
-
 
         Request request = buildGetRequest(url);
 
@@ -71,10 +64,6 @@ public class OkHttpHelper {
         Request request = buildPostRequest(url,param);
         request(request,callback);
     }
-
-
-
-
 
     public  void request(final Request request,final  BaseCallback callback){
 
@@ -119,7 +108,6 @@ public class OkHttpHelper {
 
     }
 
-
     private void callbackSuccess(final  BaseCallback callback , final Response response, final Object obj ){
 
         mHandler.post(new Runnable() {
@@ -130,7 +118,6 @@ public class OkHttpHelper {
         });
     }
 
-
     private void callbackError(final  BaseCallback callback , final Response response, final Exception e ){
 
         mHandler.post(new Runnable() {
@@ -140,8 +127,6 @@ public class OkHttpHelper {
             }
         });
     }
-
-
 
     private  Request buildPostRequest(String url,Map<String,String> params){
 
@@ -166,12 +151,8 @@ public class OkHttpHelper {
         else if(methodType == HttpMethodType.GET){
             builder.get();
         }
-
-
         return builder.build();
     }
-
-
 
     private RequestBody builderFormData(Map<String,String> params){
 
@@ -187,13 +168,9 @@ public class OkHttpHelper {
         }
 
         return  builder.build();
-
     }
 
-
-
     enum  HttpMethodType{
-
         GET,
         POST,
 

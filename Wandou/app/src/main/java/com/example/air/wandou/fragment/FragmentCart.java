@@ -98,10 +98,25 @@ public class FragmentCart extends Fragment {
             commodityList.add(com);
         }
     }
-    public static Spanned fromHtml(String html){
+
+    public boolean addCommodity(Commodity commodity) {
+        if (commodityList.add(commodity)) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    public interface addCommodity{
+        boolean addCommodity(Commodity commodity);
+    }
+
+
+    public static Spanned fromHtml(String html) {
         Spanned result;
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-            result = Html.fromHtml(html,Html.FROM_HTML_MODE_LEGACY);
+            result = Html.fromHtml(html, Html.FROM_HTML_MODE_LEGACY);
         } else {
             result = Html.fromHtml(html);
         }

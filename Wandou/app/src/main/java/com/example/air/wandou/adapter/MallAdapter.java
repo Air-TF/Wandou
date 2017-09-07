@@ -34,16 +34,22 @@ public class MallAdapter extends RecyclerView.Adapter<MallAdapter.ViewHolder> {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_mall_tiem, parent, false);
         ViewHolder holder = new ViewHolder(view);
 
-
         return holder;
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Commodity commodity = mCommodityList.get(position);
+        final Commodity commodity = mCommodityList.get(position);
         holder.name.setText(commodity.getName());
         holder.price.setText(commodity.TotalToString());
         Glide.with(mContext).load(commodity.getImgeId()).into(holder.image);
+
+        holder.commodityView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     @Override

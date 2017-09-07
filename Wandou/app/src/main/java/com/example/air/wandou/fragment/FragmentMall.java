@@ -47,6 +47,7 @@ public class FragmentMall extends Fragment {
         View view = inflater.inflate(R.layout.fragment_mall, container, false);
 
         initControls(view);
+
         return view;
     }
 
