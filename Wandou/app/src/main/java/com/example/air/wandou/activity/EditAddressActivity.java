@@ -30,7 +30,12 @@ public class EditAddressActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_address);
         initView();
+        bt_save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+            }
+        });
 
         tv_addr.setOnClickListener(new View.OnClickListener() {
             @Override

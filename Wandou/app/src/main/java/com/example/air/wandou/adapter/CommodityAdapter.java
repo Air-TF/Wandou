@@ -22,10 +22,11 @@ import java.util.List;
 public class CommodityAdapter extends RecyclerView.Adapter<CommodityAdapter.ViewHolder> {
     private List<Commodity> mCommodityList;
 
+    private boolean checkAll = false;
 
 
     public interface OnClickListener {
-        void setOnClick(View view , int position);
+        void setOnClick(View view, int position);
     }
 
     private OnClickListener onClickListener;
@@ -72,7 +73,7 @@ public class CommodityAdapter extends RecyclerView.Adapter<CommodityAdapter.View
                 commodity.setCount(commodity.getCount() + 1);
                 holder.count.setText("" + commodity.getCount());
                 holder.price.setText(commodity.TotalToString());
-                onClickListener.setOnClick(v,position);
+                onClickListener.setOnClick(v, position);
             }
         });
 
@@ -88,7 +89,7 @@ public class CommodityAdapter extends RecyclerView.Adapter<CommodityAdapter.View
                 }
                 holder.count.setText("" + commodity.getCount());
                 holder.price.setText(commodity.TotalToString());
-                onClickListener.setOnClick(v,position);
+                onClickListener.setOnClick(v, position);
             }
         });
 
@@ -98,7 +99,7 @@ public class CommodityAdapter extends RecyclerView.Adapter<CommodityAdapter.View
                 int position = holder.getAdapterPosition();
                 mCommodityList.remove(position);
                 notifyItemRemoved(position);
-                onClickListener.setOnClick(v,position);
+                onClickListener.setOnClick(v, position);
             }
         });
 
@@ -112,7 +113,7 @@ public class CommodityAdapter extends RecyclerView.Adapter<CommodityAdapter.View
                 } else {
                     commodity.setCheck(true);
                 }
-                onClickListener.setOnClick(v,position);
+                onClickListener.setOnClick(v, position);
             }
         });
         return holder;
@@ -149,9 +150,19 @@ public class CommodityAdapter extends RecyclerView.Adapter<CommodityAdapter.View
 
     //全选
     public void CheckAll() {
-        for (int i = 0; i < getItemCount(); i++) {
-            Commodity commodity = mCommodityList.get(i);
-            commodity.setCheck(true);
+        if (checkAll) {
+            for (int i = 0; i < getItemCount(); i++) {
+                Commodity commodity = mCommodityList.get(i);
+                commodity.setCheck(false);
+                checkAll=false;
+            }
+        } else {
+            for (int i = 0; i < getItemCount(); i++) {
+                Commodity commodity = mCommodityList.get(i);
+                commodity.setCheck(true);
+                checkAll=true;
+            }
         }
+
     }
 }
