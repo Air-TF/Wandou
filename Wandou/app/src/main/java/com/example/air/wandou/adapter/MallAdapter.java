@@ -1,6 +1,7 @@
 package com.example.air.wandou.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.air.wandou.R;
+import com.example.air.wandou.activity.DetailsPageAcitvity;
 import com.example.air.wandou.bean.Commodity;
 
 import java.util.List;
@@ -29,7 +31,7 @@ public class MallAdapter extends RecyclerView.Adapter<MallAdapter.ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (mContext == null) {
-            mContext=parent.getContext();
+            mContext = parent.getContext();
         }
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_mall_tiem, parent, false);
         ViewHolder holder = new ViewHolder(view);
@@ -38,7 +40,7 @@ public class MallAdapter extends RecyclerView.Adapter<MallAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
         final Commodity commodity = mCommodityList.get(position);
         holder.name.setText(commodity.getName());
         holder.price.setText(commodity.TotalToString());
@@ -47,7 +49,10 @@ public class MallAdapter extends RecyclerView.Adapter<MallAdapter.ViewHolder> {
         holder.commodityView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent =new Intent(mContext, DetailsPageAcitvity.class);
+//                intent.putExtra("Commodity", (Serializable) mCommodityList);
+                intent.putExtra("position",position);
+                mContext.startActivity(intent);
             }
         });
     }

@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.example.air.wandou.R;
 import com.example.air.wandou.activity.SettltmentActivity;
 import com.example.air.wandou.adapter.CommodityAdapter;
+import com.example.air.wandou.base.L;
 import com.example.air.wandou.bean.Commodity;
 import com.example.air.wandou.widget.RecyclerViewDivider;
 
@@ -52,6 +53,9 @@ public class FragmentCart extends Fragment {
         Settlement = (Button) view.findViewById(R.id.btn_settlement);
         //初始化购物车数据
         initCommodity();
+
+        L.d("gg");
+
         final RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.cart_RecyclerView);
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
@@ -62,7 +66,6 @@ public class FragmentCart extends Fragment {
         final CommodityAdapter commodityAdapter = new CommodityAdapter(commodityList);
         recyclerView.setAdapter(commodityAdapter);
         textView.setText(fromHtml(commodityAdapter.isChose()), TextView.BufferType.SPANNABLE);
-
 
         CheckAll.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,7 +111,7 @@ public class FragmentCart extends Fragment {
 
     }
 
-    public interface addCommodity{
+    public interface addCommodity {
         boolean addCommodity(Commodity commodity);
     }
 

@@ -1,7 +1,10 @@
 package com.example.air.wandou.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,9 +25,10 @@ import java.util.List;
 /**
  *
  */
-public class MainActivity extends BaseActivity{
+public class MainActivity extends BaseActivity {
     TabView tabView;
     DoubleExitUtil exitUtil;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,9 +56,24 @@ public class MainActivity extends BaseActivity{
             }
         });
 
+
+        Intent intent = getIntent();
+        if (intent.getIntExtra("tocart", 1) == 1) {
+            switchFragment(new FragmentCart());
+        }
+
+
         //设置双击退出程序功能
         exitUtil = new DoubleExitUtil(this);
     }
+
+
+    private void switchFragment(Fragment fragment) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();//切换碎片
+        transaction.replace(R.id.fragment_cart,fragment);
+        transaction.commit();
+    }
+
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
