@@ -20,24 +20,29 @@
         />
 
 
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/cart_RecyclerView"
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/toolbar"
-        android:layout_above="@+id/relativeLayout">
+        android:layout_height="match_parent"
+        android:layout_above="@+id/relativeLayout"
+        android:layout_below="@+id/toolbar">
 
-    </android.support.v7.widget.RecyclerView>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/cart_RecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
 
     <RelativeLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:background="#EEEEEE"
         android:gravity="center_vertical"
-        android:paddingRight="15dp"
-        android:id="@+id/relativeLayout">
+        android:paddingRight="15dp">
 
         <Button
             android:id="@+id/btn_checkall"

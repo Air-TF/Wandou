@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
 
     <com.ycl.tabview.library.TabView
         android:id="@+id/tabView"
@@ -12,32 +12,4 @@
         android:focusableInTouchMode="true"
         >
     </com.ycl.tabview.library.TabView>
-
-    <fragment
-        android:id="@+id/fragment_home"
-        android:name="com.example.air.wandou.fragment.FragmentHome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
-
-    <fragment
-        android:id="@+id/fragment_mall"
-        android:name="com.example.air.wandou.fragment.FragmentMall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
-
-    <fragment
-        android:id="@+id/fragment_cart"
-        android:name="com.example.air.wandou.fragment.FragmentCart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
-
-    <fragment
-        android:id="@+id/fragment_mine"
-        android:name="com.example.air.wandou.fragment.FragmentMine"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
 </LinearLayout>

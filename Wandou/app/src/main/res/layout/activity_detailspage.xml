@@ -15,8 +15,17 @@
         Topbar:leftButtonIcon="@mipmap/icon_back"
         Topbar:title="页面详情"/>
 
+    <TextView
+        android:id="@+id/information"
+        android:layout_below="@id/topbar"
+        android:layout_above="@+id/ll_cat"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
 
     <LinearLayout
+        android:id="@+id/ll_cat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"

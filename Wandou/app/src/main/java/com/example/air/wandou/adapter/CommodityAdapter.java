@@ -145,7 +145,7 @@ public class CommodityAdapter extends RecyclerView.Adapter<CommodityAdapter.View
                 total += commodity.getCount();
             }
         }
-        return "共<span style='color:#eb4f38'>" + total + "</span>件商品，合计<span style='color:#eb4f38'>" + (double) money / 100 + "</span>";
+        return "共<font color='#eb4f38'>" + total + "</font>件商品，合计<font color='#eb4f38'>" + (double) money / 100 + "</font>";
     }
 
     //全选

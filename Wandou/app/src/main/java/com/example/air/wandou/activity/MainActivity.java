@@ -3,8 +3,6 @@ package com.example.air.wandou.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -44,8 +42,14 @@ public class MainActivity extends BaseActivity {
         tabViewChildList.add(tabViewChild02);
         tabViewChildList.add(tabViewChild03);
         tabViewChildList.add(tabViewChild04);
-        //设置首页为默认启动页
-        tabView.setTabViewDefaultPosition(0);
+
+        Intent intent = getIntent();
+        if (intent.getIntExtra("tocart", -1) == 2) {
+            tabView.setTabViewDefaultPosition(2);
+        } else {
+            //设置首页为默认启动页
+            tabView.setTabViewDefaultPosition(0);
+        }
 
         //设置选项相应事件
         tabView.setTabViewChild(tabViewChildList, getSupportFragmentManager());
@@ -56,24 +60,9 @@ public class MainActivity extends BaseActivity {
             }
         });
 
-
-        Intent intent = getIntent();
-        if (intent.getIntExtra("tocart", 1) == 1) {
-            switchFragment(new FragmentCart());
-        }
-
-
         //设置双击退出程序功能
         exitUtil = new DoubleExitUtil(this);
     }
-
-
-    private void switchFragment(Fragment fragment) {
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();//切换碎片
-        transaction.replace(R.id.fragment_cart,fragment);
-        transaction.commit();
-    }
-
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
